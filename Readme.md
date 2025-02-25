@@ -120,4 +120,69 @@ match day:
 - 6. not in
 ```eg: 'he' not in s1```
 
-### 
+### String Methods: find() and index()
+- For any class in python to know its definition you can call eg: ```dir(str) or dir(list)```
+- It returns or shows all methods availaible in the class
+```
+>>> dir(str)
+['__add__', '__class__', '__contains__', '__delattr__', '__dir__', '__doc__', '__eq__',
+'__format__', '__ge__', '__getattribute__', '__getitem__', '__getnewargs__', '__getstate__', 
+'__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', 
+'__mod__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__rmod__', 
+'__rmul__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', 'capitalize', 'casefold', 
+'center', 'count', 'encode', 'endswith', 'expandtabs', 'find', 'format', 'format_map', 'index', 'isalnum', 
+'isalpha', 'isascii', 'isdecimal', 'isdigit', 'isidentifier', 'islower', 'isnumeric', 'isprintable', 'isspace', 
+'istitle', 'isupper', 'join', 'ljust', 'lower', 'lstrip', 'maketrans', 'partition', 'removeprefix', 'removesuffix', 
+'replace', 'rfind', 'rindex', 'rjust', 'rpartition', 'rsplit', 'rstrip', 'split', 'splitlines', 'startswith', 'strip', 
+'swapcase', 'title', 'translate', 'upper', 'zfill']
+```
+- help(s.capitalize) -> returns the documenatation of the method of class
+- string object is stored like an array of characters.
+- ```s.find(sub[, start[, end]])``` (things in square brackets are optionals)
+    - if string not found it returns -1
+- s.find returns -1 if string not found , whereas s.index throws exception
+```
+>>> s.find('k')
+-1
+>>> s.index('k')
+Traceback (most recent call last):
+  File "<python-input-12>", line 1, in <module>
+    s.index('k')
+    ~~~~~~~^^^^^
+ValueError: substring not found
+```
+- ```s.rfind(sub[, start, end]])```
+- ```s.index(sub[, start, end]])```
+- ```s.rindex(sub[, start, end]])```
+- ```s.count(sub[, start, end]])```
+
+
+## String Method: Removing spaces
+- since string is immutable so it returns a new string
+- ```s.ljust(width, [fill])```
+- ```s.rjust(width, [fill])```
+- ```s.center(width, [fill])```
+- justifies spaces according to width, and fill is optional for filling certain characters
+- eg:
+```
+>>> res = s.rjust(7, '$')
+>>> res
+'$$$ho1o'
+>>> s (string s remains same)
+'ho1o'
+```
+
+- ```s.strip([chars])```
+- ```s.lstrip([chars])```
+- ```s.rstrip([chars])```
+
+## String Method: Changing cases
+- ``` s.capitalize()```
+- ``` s.lower()```
+- ``` s.upper()```
+- ``` s.title()```
+- ``` s.swapcase()```
+- ``` s.casefold()```
+
+## String method: Inquiry Methods
+
