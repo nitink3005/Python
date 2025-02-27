@@ -186,3 +186,58 @@ ValueError: substring not found
 
 ## String method: Inquiry Methods
 
+
+
+
+## Classes and Objects
+- Declaration & intialisation both should be done inside constructor in python.
+```python
+class cuboid:
+    def __init__(self, l, b, h) : #constructor (init -> intialiser )
+        self.length = l
+        self.breadth = b
+        self.height = h
+    
+    def lidArea(self):
+        return self.length * self.breadth
+
+
+# creating object
+c1 = cuboid
+```
+
+### self and reference
+- self is reference to the same object
+- eg `c2.volume()` here the c2.volume() -> reference the c2 object which is equal to self
+- we cannot have multiple constructors as python takes up the recent constructor and overshadows the rest. (i.e the __init__ fn would have onlye 1 declaration)
+
+### Instance variable and methods
+- objects are called instances of a class
+#### Variables
+- instance variable
+    ```python
+    def sum(self):
+        self.a = 10 #here a is an instance variable
+    ```
+
+- satic/class variable
+    - variable common to the entire class
+
+### Methods
+- instance method
+    - methods accessing instance variable
+- class method
+    - If a mathod is using class variable then its a class method
+
+### Accessors and Mutators(get and set)
+- get
+    ```python
+    def getLength(self):
+        return self.length
+    ```
+
+- set
+    ```python
+        def setLength(self, l):
+            self.length = l
+    ```
