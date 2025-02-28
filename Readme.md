@@ -241,3 +241,159 @@ c1 = cuboid
         def setLength(self, l):
             self.length = l
     ```
+
+### Inheritance
+- if you are defining your own child class with constructor then the parent class constructor will not be implicitly called
+- we would have to call the parent constructor using `super()`
+```python
+class Rectangle:
+    def __init__(self, l, b):
+        self.length = l
+        self.breadth = b
+    
+    def area(self):
+        return self.length * self.breadth
+
+#example of inheritance
+class cuboid(Rectangle):
+    def __init__(self, l, b,h):
+        self.height = h
+        super().__init__(l, b)
+    
+    def volume(self):
+        return self.length * self.breadth * self.height
+
+c1 = cuboid(5, 20, 10)
+print(c1.volume())
+print(c1.area())
+```
+
+### Inner classes
+```python
+class Customer:
+    def __init__(self, name, state, city, country):
+        self.name = name
+        self.customerAddress = self.Address(state, city, country)
+    
+    class Address:
+        def __init__(self, state, city, country):
+            self.state = state
+            self.city = city
+            self.country = country
+        
+        def display(self):
+            print(self.state)
+            print(self.city)
+            print(self.country)
+
+c1 = Customer('nitin', 'delhi', 'delhi', 'india')
+c1.customerAddress.display()
+```
+
+### Polymorphism (many forms)
+```python
+def petLover(animal):
+    animal.talk()
+    if hasAttr(animal, 'walk'):
+        animal.walk()
+
+class Duck:
+    def talk(self):
+        print('duck is talking')
+    
+    def walk(self):
+        print('duck is walking')
+
+class Dog:
+    def talk(self):
+        print('dog is barking')
+
+animalType = Dog()
+petLover(animalType)
+```
+## Method overloading
+- when you write two methods with same name then the later one is considered in python.
+- the previous one will be shadowed.
+
+```python
+class Arith:
+    def sum(self, a, b, c = None):
+        sum = a + b
+        if c == None:
+            return sum
+        else:
+            return sum + sum
+
+a = Arith()
+print(a.sum(5, 10))
+print(a.sum(5, 10, 20))
+```
+
+## Method overriding
+- redefining method of parent class in the child class
+```python
+class iPhone6:
+    def home(self):
+        print('home button is pressed')
+
+class iPhoneX(iPhone6):
+    def home(self):
+        print('home is touched')
+        super().home()
+
+i6 = iPhone6()
+i6.home()
+
+ix = iPhoneX()
+ix.home()
+```
+
+### Abstract Classes and Interfaces
+- for this we would have to import `from abc import ABC, abstractmethod`
+- any class inheriting from ABC becomes an abstract class
+```python
+from abc import ABC, abstractmethod
+class Parent(ABC):
+    def show(self):
+        pass
+    
+    def display(self):
+        print('parent display')
+
+class Child(Parent):
+    def show(self):
+        print('child class')
+
+c = Child()
+c.show()
+c.display()
+
+```
+- We get Error , if we try to instantiate an abstract class in python
+```python
+
+from abc import ABC, abstractmethod
+class Parent(ABC):
+    @abstractmethod
+    def show(self):
+        pass
+    
+    def display(self):
+        print('parent display')
+
+class Child(Parent):
+    pass
+
+c = Child()
+
+
+Traceback (most recent call last):
+  File "/Users/deshraj/Desktop/nitin/github/Python/code/abstract-class.py", line 13, in <module>
+    c = Child()
+TypeError: Can't instantiate abstract class Child without an implementation for abstract method 'show'
+```
+
+### Method Resolution
+- object is the parent class for all the classes in Python.
+- method resoultion order (className.mro()) (refer abstract-class.py eg)
+    - output: `[<class '__main__.Child2'>, <class '__main__.Child'>, <class '__main__.Parent'>, <class 'abc.ABC'>, <class 'object'>]`
