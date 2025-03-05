@@ -186,6 +186,179 @@ ValueError: substring not found
 
 ## String method: Inquiry Methods
 
+## Functions
+```
+def name(<parameter list>) :
+    return None
+```
+- By default function returns None if nothing is returned.
+
+### Positional vs Keyword arguments
+- By default it uses positional arguments
+- the positional arguments have to be passed in order.
+- Keyword arguments:
+    - `n = net_sal(deduction=2000, basic=800, allowance=600)`
+    - in this method , I should know the exact name of formal parameters
+    - if trying mix of both positional and keyword then pass positional first & then keyword
+
+### default arguments
+- default should be on the right side
+- keywords should be on the right(positional should be first, and then default args)
+```python
+def add(a, b=0, c=0):
+    return a+b+c
+
+print(add(5))
+```
+- default are created only once
+    - here List is created only once, so when additem(33) is called it appends to existing list
+```python
+def additem(item, L=[]):
+    L.append(item)
+    return L
+
+additem(22)
+additem(33)
+```
+
+### Mixed positional Keyword Arguments
+- anything before slash is positional arguments rest can be positional / keyword arguments
+- anything after * should be keyword arguments
+```python
+def add(a, b, /, c, d, e, f):
+    print(a, b, c, d, e, f)
+    return a + b + c + d + e + f
+
+add(2, 5, 3, f = 100, e = 20, d = 1)
+
+# anything after * is keyword argument
+def add2(a, b, /, c, d, *, e, f):
+    print(a, b, c, d, e, f)
+    return a + b + c + d + e + f
+
+add2(2, 5, e = 10, f = 100, c = 20, d = 1)
+```
+### Variable length positional arguments
+- args type is tuple    
+```python
+def fun1(*args):
+    print(type(args), args)
+
+fun1()
+fun1(10, 20)
+fun1(30, 20, 10)
+
+# <class 'tuple'> ()
+# <class 'tuple'> (10, 20)
+# <class 'tuple'> (30, 20, 10)
+```
+
+- Unpacking arguments
+```python
+
+def fun1(a, b, c):
+    print(a, b, c)
+
+L1 = [10, 5, 6]
+fun1(*L1)
+
+```
+- Multiple return values
+```python
+def fun3(a, b, c):
+    return a+1, b+1, c+1
+
+x,y,z = fun3(1, 2, 3)
+print(x, y, z)
+```
+
+### Variable Length Keyword Arguments
+- we can pass variable keyword args (which has a type of dict)
+- eg: {name:'nitin', age:25, add='Delhi'}
+```python
+def fun2(**kwargs):
+    print(kwargs)
+    print(type(kwargs))
+
+fun2(name='nitin', age=25, add='Delhi')
+#<class 'dict'>
+```
+## Iterators and Generators
+- Iterators(iter)
+- if we try to access the 5th element it would throw runtime error
+```python
+L = [1, 2, 3, 4]
+itr = iter(L)
+print(next(itr))
+print(next(itr))
+print(next(itr))
+print(next(itr))
+```
+
+- Generators
+    - `yield` keeps the function on hold and returns the value
+```python
+def Days():
+    L = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+    i = 0
+    while True:
+        x = L[i]
+        i = (i+1)%7
+        yield x
+
+d = Days()
+print(next(d))
+print(next(d))
+print(next(d))
+print(next(d))
+```
+
+## global vs local variables
+- a function cannot modify global variables
+- it can just access and read them
+- to modify global variable from a function we define `global` eg: `global g`
+- `globals()` gives list of all global variables
+- `locals()` gives list of all local variables
+eg:
+```python
+g = 10
+def fun1():
+    global g
+    g = g + 5
+    print('global', g)
+
+fun1()
+```
+## Recursive Functions
+```python
+def factorial(n):
+    if n == 0:
+        return 1
+    else:
+        res = n * factorial(n-1)
+        return res
+
+res = factorial(5)
+print(res)
+```
+
+## Built in Functions
+
+## What are Modules ?
+- 
+
+
+## Exception Handling
+- Exceptions are called as runtime errors
+- Types of Errors
+    - Syntax Errors
+    - Logical Errors
+    - Runtime Errors
+
+- 
+
+
+
 
 
 
