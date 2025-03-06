@@ -343,10 +343,126 @@ print(res)
 ```
 
 ## Built in Functions
+https://docs.python.org/3/library/functions.html#zip
+<img src="./img/built-in-functions.png" alt="built-in-functions">
 
 ## What are Modules ?
-- 
+- module is nothing but a python file
+```python
+import ModuleOne as mo
+n1 = 10
+n2 = 20
+print('Sum', mo.add(n1, n2))
+```
+- __name__ prints '__main__' if executed in the same file
+- if excuted in one file where its imported then it print the fileName
 
+## Nested Functions
+- Everything is an object in python, so fns are also treated as an object.
+```python
+def Outer():
+    def Inner():
+        print('I am inner function')
+
+    Inner()
+
+Outer()
+```
+
+## Returning Functions
+- Function as parameter
+```python
+def display():
+    print('hello world')
+
+def fun(d):
+    d()
+
+fun(display)
+```
+
+- Function returning a function
+```python
+def Outer():
+    def display():
+        print('hello world')
+    return display
+
+d = Outer()
+d()
+```
+## Closure Function
+```python
+def hello():
+    msg = 'hello world'
+    def display():
+        print('*' * 10)
+        print(msg)
+        print('*' * 10)
+    return display
+
+d = hello()
+d()
+```
+## Caller Class
+- A class whose object can be used as a function name or method name is called as `caller class`.
+```python
+class Dept:
+    def__init__(self):
+        self.depts = {
+            'hr': 'Human Resource',
+            'acc': 'Accounts & Finance',
+            'sd' : 'Sales & Distribution',
+            'mkt': 'Marketing'
+        }
+    
+    ## call is an override method
+    def __call__(self, dept):
+        return self.depts[dept]
+
+d = Dept()
+result = d('hr')
+print(result)
+```
+
+## Decorator Function
+- Steps
+    - Passing fn as parameter
+    - Nested fn calling paramter fn
+    - return nested fn
+
+- Similar to close fn, but here the fn should be passed as parameter and above steps should be followed.
+
+```python
+def decorator(fun):
+    def wrapper():
+        # do something
+        print('something...')
+        fun()
+        print('did something...')
+        # do something
+    return wrapper
+
+def display():
+    print('hello')
+
+d = decorator(display)
+d()
+```
+
+## Lambda Functions
+- anonymous fn , means fns which don't have any name.
+- we should write them as single line of expression and they can take any number of args
+```python
+def mile2Km(miles):
+    kms = 1.6 * miles
+    return kms
+
+# to lambda
+
+k = lambda miles: 1.6 * miles
+print(k(10))
+```
 
 ## Exception Handling
 - Exceptions are called as runtime errors
