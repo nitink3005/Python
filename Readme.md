@@ -26,7 +26,7 @@
 - Variables are case-sensitive.
 
 ## Python Data Types
-<img src="./img/python-data-types.png" alt="python-data-types">
+<img src="https://raw.githubusercontent.com/nitink3005/Python/refs/heads/main/img/python-data-types.png" alt="python-data-types">
 
 - Numeric DataTypes
     - There is no size limit or there is no range for integer, like how we have for other languages like c++.
@@ -54,7 +54,7 @@ bin(a) => '0b1010'
  - complex()
  - bool()
  - str()
- <img src="./img/type-conversion.png" alt="type-conversion">
+ <img src="https://raw.githubusercontent.com/nitink3005/Python/refs/heads/main/img/type-conversion.png" alt="type-conversion">
 
 ## is or is not operator
 - They will check whether both the variabes are holding onto the same memory.
@@ -344,7 +344,7 @@ print(res)
 
 ## Built in Functions
 https://docs.python.org/3/library/functions.html#zip
-<img src="./img/built-in-functions.png" alt="built-in-functions">
+<img src="https://raw.githubusercontent.com/nitink3005/Python/refs/heads/main/img/built-in-functions.png" alt="built-in-functions">
 
 ## What are Modules ?
 - module is nothing but a python file
