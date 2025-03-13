@@ -186,6 +186,103 @@ ValueError: substring not found
 
 ## String method: Inquiry Methods
 
+## Formatted Printing
+- 
+
+## List
+-  List is a collection of heterogeneous objects, & is immutable.
+### Indexing and Slicing
+- `index [], slice[:], +, *,  in , not in`
+- slicing : [start: end: step]
+
+### Iterating a list
+- for loop
+```
+for x in list1
+    print(x)
+```
+- for loop in range
+```
+for i in range(len(list)):
+    print(list[i])
+```
+- while loop
+```
+while i < len(list1):
+    print(list1[i])
+```
+
+### List Methods : Adding elements
+- `append(), extend(iterable), insert(idx, ele), copy()`
+- `l1.append(10)`
+- `eg: l1.extend([120, 121, 209])`
+- `eg: l1.insert(3, 10)`
+- `eg; insert using slice `l1[4:4] = [22]`
+```
+- it creates a shallow copy
+eg: copy => l2 = l1.copy()
+>>> l2 = l1.copy()
+>>> id(l2)
+4375327488
+>>> id(l1)
+4375327808
+```
+### List Methods : Removing elements
+- `pop(), remove(x), clear()`
+- 
+
+## Tuples
+- Tuple is similar to list and is a collection of values and is `immutable`.
+`tuple = ('jack', 45, 48.6, false, 'jill')`
+- it can contain duplicate elements
+- we cannot append or modify the values.
+- unpacking tuple ` a, b, c, d = t1`
+
+### tuple comprehensions and methods
+`count(value)` : used to return the no of occurence of value         <br/>
+`index()` : returns the index of the value
+
+### tuple operators
+```
+for i in t1:
+         print(i)
+
+for i in range(len(t1)):
+        print(t1[i])
+```
+`index[], slice[:], concatenate +, repeat *, membership (in), not in`
+
+## Sets
+- It is unordered collection of different heterogeneous elements, it is mutable.
+- `List [], Tuple (),  Set {}`
+- It doesn't store duplicate elements.
+`s1 = {45, 'nitin', 'hello', 21}`
+```
+>>> s2 = set((1, 2, 3, 4, 4))
+>>> s2
+{1, 2, 3, 4}
+```
+- We can remove or insert more values (i.e mutable)
+- `s1.discard(50)`
+- `s1.add(10)`
+ 
+### Set Methods: Adding and Deleting
+- add()
+- copy()
+- pop() : removes some random element from set
+- discard(ele) : removes required element from set, doesnt throw error even if ele already removed
+- remove(ele): removes ele from set , but it would give an error
+- clear(): clear all the content of sets
+
+### Set Comprehensions
+- simple and easy way of creating sets from other iterables :  `S = { expression for item in iterable}`
+- S = set()
+- s1 = { x for x in range(10)}
+- s2 = {x**2 for x in [-1, 0, 1, 2]}
+- s2 = { x for x in (10, 5, 7, 8) if x%2 == 0}
+- s2 = { x.upper() for x in 'nitin'}
+ 
+
 ## Functions
 ```
 def name(<parameter list>) :
