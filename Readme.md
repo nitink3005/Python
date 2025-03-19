@@ -228,8 +228,52 @@ eg: copy => l2 = l1.copy()
 4375327808
 ```
 ### List Methods : Removing elements
-- `pop(), remove(x), clear()`
-- 
+- `pop(), remove(element), clear()`
+```
+>>> l1 = [1,2, 4]
+>>> l1.pop()
+4
+>>> l1
+[1, 2]
+>>>
+```
+- del
+```
+>>> l1 = [1, 2, 3, 4]
+>>> del l1[0:2]
+>>> l1
+[3, 4]
+>>>
+```
+## List Methods : index,count, reverse, sort
+- `index(x, [start, [, end]])`
+- l1 = [5, 6, 7, 5, 8, 9, 6, 10, 6]
+- l1.index(8) => 4
+- throws error if value not found
+```
+>>> l1.index(55, 1, 4)
+Traceback (most recent call last):
+  File "<python-input-15>", line 1, in <module>
+    l1.index(55, 1, 4)
+    ~~~~~~~~^^^^^^^^^^
+ValueError: 55 is not in list
+```
+- `sort(*, key = None, reverse = False)`
+- `l1.sort()` sorts the same list
+- `l1.sort(reverse = True)`
+- `l1.sort(key=str.lower)` : all should be converted in lower and then sorted
+
+## List Comprehensions
+- `L1 = [expression for item in range]`
+- eg:
+      - l1 = [x for x in range(10)]
+      - l2 = [x**2 for x in range(1, 6)]
+      - l3 = [x for x in (10,5 ,6, 7, 8) if x%2 == 0]
+      - l3 = [x.lower() for x in 'Python']
+
+## Nested List
+- accessing a nested list `list[2][0]`
+- list = [10, 20, ['a', 'b'], 30, 40]
 
 ## Tuples
 - Tuple is similar to list and is a collection of values and is `immutable`.
