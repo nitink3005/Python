@@ -187,7 +187,42 @@ ValueError: substring not found
 ## String method: Inquiry Methods
 
 ## Formatted Printing
-- 
+- You can avoid moving to the next line by writing end with empty string eg: `print('abc', end='')`
+- whenever print method prints something it moves cursor to the next line.
+- `print(object, [sep= , end= , file=sys.stdout ,flush=False]`
+```
+>>> a = 'nitin'
+>>> b = 'delhi'
+>>> print(a, b, sep='~')
+nitin~delhi
+```
+- By default sep is a space and end is a new-line.
+
+## C Style formatting
+- Use % and then (variable names)
+```
+>>> name = 'nitin'
+>>> age = 25
+>>> city = 'delhi'
+>>> interest = 5.2
+>>> print('user %s age %d living in %s has interest of %f' %(name, age, city, interest))
+user nitin age 25 living in delhi has interest of 5.200000
+```
+- %s string
+- %d decimal
+- %f float
+- %n integer
+
+## Formatted Printing
+- Flower brackets are placeholder , and the value that I have written inside them is index. eg: `print('Division of {0} and {1}  is {2}'.format(a, b, c))`
+```
+>>> a = 30
+>>> b = 5
+>>> c = 6
+>>> print('Division of {0} by {1} is {2}'.format(a, b, c))
+Division of 30 by 5 is 6
+```
+
 
 ## List
 -  List is a collection of heterogeneous objects, & is immutable.
