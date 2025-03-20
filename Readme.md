@@ -325,8 +325,150 @@ for i in range(len(t1)):
 - s2 = {x**2 for x in [-1, 0, 1, 2]}
 - s2 = { x for x in (10, 5, 7, 8) if x%2 == 0}
 - s2 = { x.upper() for x in 'nitin'}
- 
 
+## Dictionary
+`{key:value, key2:value2, .....}`
+- dict1 = {'name': 'nitin', 'age':25}
+- to get a value for a particular key `dict1['name']`
+- for key we can only takes those types which are immutable.(we cannot take list and set as key as they are mutable)
+- for data we can take any data type.
+- if we given an existing key, then its get updated & if give a new key then the new value is inserted.
+- d2 = dict() or d2 = {} -> creates an empty dictionary
+```
+>>> for x in range(1,6):
+...     d2[x] = x**2
+...     
+>>> d2
+{'name': 'nk', 1: 1, 2: 4, 3: 9, 4: 16, 5: 25}
+```
+- this is the 2nd Method of creating dictionary : `dict((iterable pairs))`
+```
+>>> l1 = ([1, 11], [2, 22], [3, 33])
+>>> type(l1)
+<class 'tuple'>
+>>> d2 = dict(l1)
+>>> d2
+{1: 11, 2: 22, 3: 33}
+```
+- 3rd method : dict(zip(iterable, iterable))
+  - zip will combine these two by taking corresponding element at corresponding positions and bearing them.
+  ```
+        >>> l1 = ['a', 'b', 'c']
+        >>> type(l1)
+        <class 'list'>
+        >>> l2 = ['apple', 'bnana', 'cherry']
+        >>> type(l2)
+        <class 'list'>
+        >>> dict3 = dict(zip(l1, l2))
+        >>> dict3
+        {'a': 'apple', 'b': 'bnana', 'c': 'cherry'}
+  ```
+  - if one iterable has extra values that will be ignored it will only contruct key value pair until it can match as a pair
+
+- 4th : dict(enumerate(iterable))
+    - Enumeration gives numbers to items in the list and it is giving a tuple.
+    ```
+    >>> l1 = ['A', 'B', 'C']
+    >>> for item in enumerate(l1):
+    ...     print(item)
+    ...     
+    (0, 'A')
+    (1, 'B')
+    (2, 'C')
+
+    >>> dict4 = dict(enumerate(l1))
+    >>> dict4
+    {0: 'A', 1: 'B', 2: 'C'}
+    ```
+
+- method 5: dict{exp: exp for item in iterable}
+```
+    >>> dict1 = {x:x**2 for x in range(1, 5)}
+    >>> dict1
+    {1: 1, 2: 4, 3: 9, 4: 16}
+```
+- method 6 : without colon similar to method 5
+    - `dict1 = dict((x,x**2) for x in range(1, 5))`
+
+- method 7 : `{x:y for x, y in zip(L1, L2)}`
+- method 8: same as method 4
+    - we can use `{item for item in enumerate(iterable)}`
+    - eg:
+       ```
+            >>> L2 = [1, 2, 3]
+            >>> dict1 = {x:y for x,y in enumerate(L2)}
+            >>> dict1
+            {0: 1, 1: 2, 2: 3}
+        ```
+
+## Looping over Dictionary
+1. `get(key, value)`
+```
+for x in dict1:
+    print(x, dict1[x])
+```
+- using subscript can throw error if key not present `dict1[101]` and using `get` doesnt throw error `dict1.get(101)`
+
+2. `keys()`
+    - Gives all the keys in form of a list
+        ```
+    >>> dict1
+    {0: 1, 1: 2, 2: 3}
+    >>> e = dict1.keys()
+    >>> e
+    dict_keys([0, 1, 2])
+    >>> type(e)
+    <class 'dict_keys'>
+    
+    for k in dict1.keys():
+        print(k, dict1[key])
+    ```
+
+4. `values()` : Gives all the values in form of a list
+5. `items()`
+```
+>>> for x, y in dict1.items():
+...     print(x,y)
+...     
+0 1
+1 2
+2 3
+```
+## Dictionary Methods
+`copy, update(iterable) , setdefault(key, default), fromkeys(sequence, value), pop(), popitem(), clear()`
+- update : method can be used to update the existing dictionary to include more key-value pairs
+```
+>>> dict1
+{0: 1, 1: 88, 2: 3}
+>>> dict1.update({4:88, 5:99})
+>>> dict1
+{0: 1, 1: 88, 2: 3, 4: 88, 5: 99}
+```
+- setdefault
+  - It adds the key with value None if not present already in dict.
+  - You can also set some required value `dict1.setdefault(110, 'adv')`
+```
+>>> dict1
+{0: 1, 1: 88, 2: 3, 4: 88, 5: 99}
+>>> dict1.get(88)
+>>> dict1.setdefault(88)
+>>> dict1
+{0: 1, 1: 88, 2: 3, 4: 88, 5: 99, 88: None}
+```
+- fromKeys(sequence, value)
+    ```
+    >>> dict1.fromkeys(l2, 'some-value')
+    {55: 'some-value', 66: 'some-value', 77: 'some-value'}
+    ```
+    - it takes keys from sequence and adds the same value for all the keys
+
+- pop() : removes the key and value, if key not present throws error
+    - if you think value might/might not be present then:
+        - `dict1.pop(101, 'None')` then the value `None` will be returned(the value you have passed)
+
+- popitem(): pops out the last item, `>>> dict1.popitem() => (11, None)`
+
+ 
 ## Functions
 ```
 def name(<parameter list>) :
